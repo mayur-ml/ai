@@ -11,16 +11,19 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
-            text-align: center;
+            overflow-x: hidden;
         }
         header {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 0;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.5s;
         }
         .logo {
             font-size: 2em;
@@ -31,23 +34,38 @@
             color: white;
             margin: 0 10px;
             font-size: 1.2em;
+            transition: color 0.3s;
         }
-        .container {
-            padding: 20px;
+        nav a:hover {
+            color: #ffeb3b;
+        }
+        section {
+            padding: 60px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.5s;
+        }
+        section:nth-child(even) {
+            background-color: #e4e4e4;
         }
         .links a {
             text-decoration: none;
             color: #4CAF50;
             margin: 0 10px;
             font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        .links a:hover {
+            color: #ffeb3b;
         }
         footer {
             background-color: #333;
             color: white;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            padding: 20px;
+            text-align: center;
         }
         .contact-form {
             max-width: 600px;
@@ -56,6 +74,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .contact-form input, .contact-form textarea {
             width: 100%;
@@ -63,6 +82,11 @@
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 4px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(0, 150, 0, 0.2);
         }
         .contact-form button {
             background-color: #4CAF50;
@@ -71,33 +95,83 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
         }
         .contact-form button:hover {
             background-color: #45a049;
+            transform: scale(1.05);
         }
-        .hidden {
-            display: none;
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
     <script>
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.add('hidden'));
-            document.getElementById(pageId).classList.remove('hidden');
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            function onScroll() {
+                const scrollPos = window.scrollY + window.innerHeight / 2;
+
+                sections.forEach((section, index) => {
+                    if (section.offsetTop <= scrollPos && section.offsetTop + section.offsetHeight > scrollPos) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        navLinks[index].classList.add('active');
+                    }
+                });
+
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.backgroundColor = '#388E3C';
+                } else {
+                    header.style.backgroundColor = '#4CAF50';
+                }
+            }
+
+            window.addEventListener('scroll', onScroll);
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    document.querySelector(link.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Add fade-in animation to sections
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => observer.observe(section));
+        });
     </script>
 </head>
 <body>
     <header>
         <div class="logo">MLGod</div>
         <nav>
-            <a href="#" onclick="showPage('home')">Home</a>
-            <a href="#" onclick="showPage('experience')">Experience</a>
-            <a href="#" onclick="showPage('blogs')">Blogs & Stuff</a>
-            <a href="#" onclick="showPage('contact')">Contact</a>
+            <a href="#home">Home</a>
+            <a href="#experience">Experience</a>
+            <a href="#blogs">Blogs & Stuff</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
-    <div class="container page" id="home">
+    <section id="home">
         <h1>Mayur Ingole</h1>
         <h2>Machine Learning Engineer</h2>
         <p>Currently Working At NeuralGarage as Machine Learning Analyst</p>
@@ -108,16 +182,16 @@
             <a href="https://github.com/mayur-ml" target="_blank">GitHub</a>
             <a href="https://www.linkedin.com/in/mayur-ingole-415386170/" target="_blank">LinkedIn</a>
         </div>
-    </div>
-    <div class="container page hidden" id="experience">
+    </section>
+    <section id="experience">
         <h2>Experience</h2>
         <p>Details about your professional experience will go here.</p>
-    </div>
-    <div class="container page hidden" id="blogs">
+    </section>
+    <section id="blogs">
         <h2>Blogs & Stuff</h2>
         <p>Details about your blogs and other stuff will go here.</p>
-    </div>
-    <div class="container page hidden" id="contact">
+    </section>
+    <section id="contact">
         <h2>Contact Me</h2>
         <form class="contact-form" action="https://formspree.io/f/mnqekrdb" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
@@ -125,7 +199,7 @@
             <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
             <button type="submit">Send</button>
         </form>
-    </div>
+    </section>
     <footer>
         <p>&copy; <span id="year"></span> All rights reserved, Mayur Ingole</p>
     </footer>
