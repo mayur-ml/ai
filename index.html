@@ -17,10 +17,20 @@
             background-color: #4CAF50;
             color: white;
             padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
         }
         .logo {
             font-size: 2em;
             font-weight: bold;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2em;
         }
         .container {
             padding: 20px;
@@ -65,26 +75,52 @@
         .contact-form button:hover {
             background-color: #45a049;
         }
+        .hidden {
+            display: none;
+        }
     </style>
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+    </script>
 </head>
 <body>
     <header>
         <div class="logo">MLGod</div>
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('experience')">Experience</a>
+            <a href="#" onclick="showPage('blogs')">Blogs & Stuff</a>
+            <a href="#" onclick="showPage('contact')">Contact</a>
+        </nav>
     </header>
-    <div class="container">
+    <div class="container page" id="home">
         <h1>Mayur Ingole</h1>
         <h2>Machine Learning Engineer</h2>
         <p>Currently Working At NeuralGarage as Machine Learning Analyst</p>
         <p>Bangalore, India</p>
         <p>Website creation is under progress. Stay tuned for updates!</p>
+        <p>Machine Learning Analyst @NeuralGarage. Specializing in cutting-edge open-source models for speech and image processing, I drive innovation in ongoing projects. Passionate about advancing ML capabilities and fostering development within the team. Committed to delivering solutions for real-world challenges. Proven ability to collect, clean, and analyze data, build machine learning models, and communicate results to stakeholders.</p>
         <div class="links">
             <a href="https://github.com/mayur-ml" target="_blank">GitHub</a>
             <a href="https://www.linkedin.com/in/mayur-ingole-415386170/" target="_blank">LinkedIn</a>
         </div>
     </div>
-    <div class="container">
+    <div class="container page hidden" id="experience">
+        <h2>Experience</h2>
+        <p>Details about your professional experience will go here.</p>
+    </div>
+    <div class="container page hidden" id="blogs">
+        <h2>Blogs & Stuff</h2>
+        <p>Details about your blogs and other stuff will go here.</p>
+    </div>
+    <div class="container page hidden" id="contact">
         <h2>Contact Me</h2>
         <form class="contact-form" action="https://formspree.io/f/mnqekrdb" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
             <button type="submit">Send</button>
