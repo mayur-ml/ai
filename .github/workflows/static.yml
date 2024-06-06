@@ -1,67 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayur Ingole - Machine Learning Engineer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            text-align: center;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 0;
-        }
-        .logo {
-            font-size: 2em;
-            font-weight: bold;
-        }
-        .container {
-            padding: 20px;
-        }
-        .links a {
-            text-decoration: none;
-            color: #4CAF50;
-            margin: 0 10px;
-            font-size: 1.2em;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="logo">MLGod</div>
-    </header>
-    <div class="container">
-        <h1>Mayur Ingole</h1>
-        <h2>Machine Learning Engineer</h2>
-        <p>Currently Working At NeuralGarage as Machine Learning Analyst</p>
-        <p>Bangalore, India</p>
-        <p>Website creation is under progress. Stay tuned for updates!</p>
-        <div class="links">
-            <a href="https://github.com/mayur-ml" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/mayur-ingole-415386170/" target="_blank">LinkedIn</a>
-        </div>
-    </div>
-    <footer>
-        <p>&copy; <span id="year"></span> All rights reserved, Mayur Ingole</p>
-    </footer>
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-</body>
-</html>
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
 
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
