@@ -39,6 +39,32 @@
             width: 100%;
             bottom: 0;
         }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -55,6 +81,14 @@
             <a href="https://github.com/mayur-ml" target="_blank">GitHub</a>
             <a href="https://www.linkedin.com/in/mayur-ingole-415386170/" target="_blank">LinkedIn</a>
         </div>
+    </div>
+    <div class="container">
+        <h2>Contact Me</h2>
+        <form class="contact-form" action="https://formspree.io/f/mnqekrdb" method="POST">
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
     </div>
     <footer>
         <p>&copy; <span id="year"></span> All rights reserved, Mayur Ingole</p>
