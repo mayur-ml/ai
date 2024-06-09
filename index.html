@@ -1,210 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayur Ingole - Machine Learning Engineer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            overflow-x: hidden;
-        }
-        header {
-            background-color: #155fe7;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            transition: background-color 0.5s;
-        }
-        .logo {
-            font-size: 2em;
-            font-weight: bold;
-        }
-        nav a {
-            text-decoration: none;
-            color: white;
-            margin: 0 10px;
-            font-size: 1.2em;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #ffeb3b;
-        }
-        section {
-            padding: 60px 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: background-color 0.5s;
-        }
-        section:nth-child(even) {
-            background-color: #e4e4e4;
-        }
-        .links a {
-            text-decoration: none;
-            color: #4CAF50;
-            margin: 0 10px;
-            font-size: 1.2em;
-            transition: color 0.3s;
-        }
-        .links a:hover {
-            color: #ffeb3b;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        .contact-form input:focus, .contact-form textarea:focus {
-            border-color: #4CAF50;
-            box-shadow: 0 0 5px rgba(0, 150, 0, 0.2);
-        }
-        .contact-form button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .contact-form button:hover {
-            background-color: #45a049;
-            transform: scale(1.05);
-        }
-        .animate-fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 1s forwards;
-        }
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
-
-            function onScroll() {
-                const scrollPos = window.scrollY + window.innerHeight / 2;
-
-                sections.forEach((section, index) => {
-                    if (section.offsetTop <= scrollPos && section.offsetTop + section.offsetHeight > scrollPos) {
-                        navLinks.forEach(link => link.classList.remove('active'));
-                        navLinks[index].classList.add('active');
-                    }
-                });
-
-                const header = document.querySelector('header');
-                if (window.scrollY > 50) {
-                    header.style.backgroundColor = '#388E3C';
-                } else {
-                    header.style.backgroundColor = '#4CAF50';
-                }
-            }
-
-            window.addEventListener('scroll', onScroll);
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    document.querySelector(link.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // Add fade-in animation to sections
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-fade-in');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            sections.forEach(section => observer.observe(section));
-        });
-    </script>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Devcrud">
+    <title>Mayur.ai</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + JohnDoe main styles -->
+	<link rel="stylesheet" href="assets/css/johndoe.css">
 </head>
-<body>
-    <header>
-        <div class="logo">MLGod</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#experience">Experience</a>
-            <a href="#blogs">Blogs & Stuff</a>
-            <a href="#contact">Contact</a>
-        </nav>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    
+    <header class="header">
+        <div class="container">
+
+            </ul>  
+            <div class="header-content">
+                <h4 class="header-subtitle" >Hello, I am</h4>
+                <h3 class="header-title">Mayur B. Ingole</h3>
+                <h5 class="header-mono" >Machine Learning Engineer | Traveller</h5>
+                <a href="https://www.linkedin.com/in/mayur-ingole-415386170" target="_blank" class="btn btn-primary btn-rounded" style="margin-right: 10px;">
+                    <i class="ti-linkedin pr-3"></i>Linkedin
+                </a>
+                
+            </div>
+        </div>
     </header>
-    <section id="home">
-        <h1>Mayur Ingole</h1>
-        <h2>Machine Learning Engineer</h2>
-        <p>Currently Working At NeuralGarage as Machine Learning Analyst</p>
-        <p>Bangalore, India</p>
-        <p>Website creation is under progress. Stay tuned for updates!</p>
-        <p>Machine Learning Analyst @NeuralGarage. Specializing in cutting-edge open-source models for speech and image processing, I drive innovation in ongoing projects. Passionate about advancing ML capabilities and fostering development within the team. Committed to delivering solutions for real-world challenges. Proven ability to collect, clean, and analyze data, build machine learning models, and communicate results to stakeholders.</p>
-        <div class="links">
-            <a href="https://github.com/mayur-ml" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/mayur-ingole-415386170/" target="_blank">LinkedIn</a>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
+        <div class="container">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#resume" class="nav-link">Resume</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav brand">
+                    <img src="assets/imgs/a.jpg" alt="" class="brand-img">
+                    <li class="brand-txt">
+                        <h5 class="brand-title">Mayur Ingole</h5>
+                        <div class="brand-subtitle">Machine Learning Engineer</div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link">projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#blog" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item last-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div id="about" class="row about-section">
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">Who am I ?</h3>
+                <span class="line mb-5"></span>
+                <h5 class="mb-3">Machine Learning Engineer</h5>
+                <h9 class="mt-20">As an AI enthusiast deeply immersed in the ever-evolving world of technology, my journey has led me to an exhilarating intersection where I explore the frontiers of Generative AI, 3D GANs, Transformers, and Multi-modal Machine Learning. Currently serving as a Machine Learning Analyst at NeuralGarage, I specialize in leveraging cutting-edge open-source models for speech and image processing, driving innovation in ongoing projects. My passion lies in pushing the boundaries of ML capabilities while fostering development within my team. With a proven track record of collecting, cleaning, and analyzing data, as well as building and deploying machine learning models, I am dedicated to delivering impactful solutions for real-world challenges.</h9>
+                
+            </div>
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">My </h3>
+            </ul> 
+            </ul> 
+            </ul> 
+                <h3 class="font-weight-light">Personal Info</h3>
+                <span class="line mb-5"></span>
+                <ul class="mt40 info list-unstyled">
+                    <li><span>Birthdate</span> : 14/08/2000</li>
+                    <li><span>Email</span> : myringole@gmail.com</li>
+                    <li><span>Address</span> :  Bengaluru,India.</li>
+                </ul>
+                <style>
+                    .social-icons {
+                        list-style: none;
+                        padding: 0;
+                    }
+                
+                    .social-item {
+                        display: inline-block;
+                        margin-right: 10px;
+                    }
+                
+                    .social-link {
+                        font-size: 24px;
+                        color: #333;
+                        transition: color 0.3s;
+                    }
+                
+                    .social-link:hover {
+                        color: #007bff; /* Change this color as per your design */
+                    }
+                
+                    .btn-custom {
+                        display: block;
+                        width: 100%;
+                        margin-top: 10px;
+                        text-align: center;
+                    }
+                </style>
+                
+                </ul>
+                <a href="https://drive.google.com/drive/folders/1gjOrhBAaJQPXz1S-Lf3fMHDxD2tjFVDh?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-custom"><i class="ti-world"></i> Download My CV</a>
+                <a href="https://www.linkedin.com/in/mayur-ingole-415386170" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-custom"><i class="ti-linkedin"></i> Linkedin </a>
+                <a href="https://github.com/Mayur-ml" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-custom"><i class="ti-github"></i> Github </a>
+                <a href="https://x.com/MAYURINGOLE16" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-custom"><i class="ti-twitter"></i></i> Twitter</a>
+                <a href="https://medium.com/@myringoleMLGOD" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-custom"><i class="ti-medium"></i> Medium </a>
+                
+                
+                  
+            </div>
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">My Expertise</h3>
+                <span class="line mb-5"></span>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-crown icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Deep Learning</h6>
+                        <p class="subtitle">Computer Vision, Generative AI, 3D
+                            Reconstruction, Multimodal Deep Learning,
+                            Graph Neural Networks, Natural Language
+                            Processing, LLM's, and classical ML
+                            algorithms.</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-paint-bucket icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Machine Learning- TechStack</h6>
+                        <p class="subtitle">PyTorch ,OpenCV,
+                            HuggingFace , PyTorch Lightning,
+                            Transformers, TensorRT, Torchscript,
+                            ONNX ,Numpy, Pandas, Linux.</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-rocket icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Programming languages</h6>
+                        <p class="subtitle">Python, SQL, HTML.</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-cloud icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Cloud Platforms</h6>
+                        <p class="subtitle">AWS -> S3 Bucket,
+                            Amazon RDS, AWS-EC2 Instance,
+                            Sagemaker, Lambda.</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-server icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Databases</h6>
+                        <p class="subtitle">MySQL, MongoDB.</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-world icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Web Framework</h6>
+                        <p class="subtitle">API, Flask, FastAPI,
+                            Postman, RestFull API.</p>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <html lang="en">
+            <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>My Resume></title>
+            <style>
+            .resume .container {
+                width: 190%;
+                margin: 0px auto;
+            }
+            .resume .title {
+                font-size: 1.2rem;
+                color: #dc3545; /* Text color: Danger color */
+            }
+            h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            }
+            .resume .subtitle {
+                font-size: 1rem;
+                text-align: justify;
+                padding: 10px 0;
+            }
+            </style>
+            </head>
+            <body>
+            <section class="section resume" id="resume">
+                <div class="container">
+        <div class="container">
+            <h2 class="mb-5"><span class="text-danger">My</span> Resume</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                    <div class="card-header">
+                            <div class="mt-2">
+                                <h4>PROFESSIONAL EXPERIENCE</h4>
+                                <span class="line"></span>  
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title">2023 - Present</h6>
+                            <h5 class="title">Machine Learning Analyst</h5>
+                            <h6>NeuralGarage (VisualDub.ai) - Bengaluru.</h6>
+                            <p class="subtitle">Implemented state-of-the-art open-source models for speech and image processing, advancing ongoing projects. Reimplemented research papers to enhance facial landmarks tracking and audio processing techniques. Employed feature concatenation techniques to integrate multiple modalities of data, improving lip movement synthesis results. Contributed to internal initiatives aimed at advancing the organization's machine learning capabilities.</p>
+                            <hr>
+                            <h6 class="title">02/2023 – 08/2023</h6>
+                            <h5 class="title">Data Scientist</h5>
+                            <h6>Connou - Tübingen, Germany (Remote)</h6>
+                            <p class="subtitle">Enhanced organization's application connecting algorithm, while collecting, cleaning, and preparing extensive user data for analysis, implementing ML models, and building data processing pipelines. Proficiently developed clean, efficient Python code with thorough unit testing, actively contributing to business strategy formulation and execution.</p>
+                            <hr>
+                            <h6 class="title">11/2022 – 02/2023</h6>
+                            <h5 class="title">Data Scientist - Intern</h5>
+                            <h6>Connou - Tübingen, Germany (Remote)</h6>
+                            <p class="subtitle">Supported senior team members in ML projects, conducting data preprocessing, model development, and evaluation, while also contributing innovative ideas and insights derived from exploratory data analysis, algorithm implementation, and hyperparameter tuning.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                    <div class="card-header">
+                            <div class="mt-2">
+                                <h4>EDUCATION</h4>
+                                <span class="line"></span>  
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title">2019 - 2022</h6>
+                            <p class="title">Bachelor's Of Engineering</p>
+                            <p class="subtitle">CGPA : 8.98 / 10</p>
+                            <p class="subtitle">During my mechanical engineering studies, exposure to MATLAB and C++ sparked my interest in computational mathematics and technical computing. Discovering OpenAI's GPT-2 paper and witnessing AI's potential amid the COVID-19 pandemic served as transformative moments, motivating me to explore machine learning. This journey allowed me to bridge my engineering background with the dynamic field of artificial intelligence. Alongside, I cultivated a robust foundation in mechanical engineering, enhancing my interdisciplinary expertise and preparing me for the challenges ahead.</p>
+                            <hr>
+                            <h6 class="title">2016 - 2019</h6>
+                            <p class="title">Diploma in Mechanical Engineering</p>
+                            <p class="subtitle">During my diploma in mechanical engineering, I acquired foundational knowledge and practical skills in various aspects of mechanical design, analysis, and manufacturing. This hands-on experience laid the groundwork for my further studies and career pursuits in the field.</p>
+                            <hr>
+                            <h6 class="title">2016</h6>
+                            <p class="title">High School</p>
+                            <p class="subtitle">In high school, I developed a strong academic foundation and honed essential skills through both classroom learning and extracurricular activities.</p>
+                        </div>
+                    </div>
+                </div>
+                    
+    
+                <div class="col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="pull-left">
+                                <h4 class="mt-2">Skills</h4>
+                                <span class="line"></span>  
+                            </div>
+                        </div>
+                        <div class="card-body pb-2">
+                           <h6>Deep learning</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 97%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Computer Vision</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Classical Machine Learning</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 85%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>PyQt - Designing GUI applications</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 70%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Data Analytics</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Tableau</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="pull-left">
+                                <h4 class="mt-2">Languages</h4>
+                                <span class="line"></span>  
+                            </div>
+                        </div>
+                        <div class="card-body pb-2">
+                           <h6>English</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Marathi</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 45%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Hindi</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 67%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    <section id="experience">
-        <h2>Experience</h2>
-        <p>Details about your professional experience will go here.</p>
+
+    <section class="section bg-dark text-center">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="row ">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-alarm-clock icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">300 Hrs</h1>
+                            <p class="text-light mb-1">Coded</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="row">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-car icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">7/28</h1>
+                            <p class="text-light mb-1">States Travelled </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="row">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-face-smile icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40"> 1/8</h1>
+                            <p class="text-light mb-1">Union Territory Travelled </p>
+                            <p class="text-light mb-1">	Puducherry is next.....</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="row">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-heart-broken icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">2k +</h1>
+                            <p class="text-light mb-1">Coffee Drinked</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="blogs">
-        <h2>Blogs & Stuff</h2>
-        <p>Details about your blogs and other stuff will go here.</p>
+
+    <section class="section bg-dark py-5">
+        <div class="container text-center">
+            <h2 class="text-light mb-5 font-weight-normal" style="text-align: center; padding: 20px;">"If you have any exciting opportunities or projects that you think I'd be a great fit for, I'm all ears! Let's make something incredible together."</h2>
+
+            <button class="btn bg-primary w-lg" >Contact me at myringole@gmail.com </button>
+        </div>
     </section>
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form class="contact-form" action="https://formspree.io/f/mnqekrdb" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
+    <section class="section" id="blog">
+        <div class="container">
+            <h2 class="mb-5">Blogs | News<span class="text-danger"></span></h2>
+            <div class="row">
+                <div class="blog-card">
+                    <div class="img-holder">
+                        <img src="assets/imgs/blognvidia.jpeg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                    <div class="content-holder">
+                        <h6 class="title">Startup Insception program at Nvidia</h6>
+
+                        <p class="post-details">
+                            <a href="#">By: Nvidia</a>
+                            <a href="#"><i class="ti-heart text-danger"></i> 92</a>
+                            <a href="#"><i class="ti-comment"></i>2</a>
+                        </p>
+                        
+                        <p>🚀 After the successful #GenAICon2023, Nascom.ai concluded #DevCon2023 at NVIDIA's Bengaluru campus.</p>
+
+                        <p>🤝 The two-day #GenAIDevCon2023 was tailored for developers and data scientists from 15 nasscom #GenAIFoundry startups, focusing on advanced AI techniques.</p>
+
+                        <p>Highlights:</p>
+                        <ul>
+                            <li>🎯 Multi-GPU Distributed Training for enhanced performance</li>
+                            <li>🎯 End-to-End workflows for Large Language Models with NeMo Framework</li>
+                            <li>🎯 TensorRT and Triton Inference for Deep Learning</li>
+                            <li>🎯 Accelerating Diffusion Pipelines with TensorRT and Faster Transformer</li>
+                            <li>🎯 Developing Indic Automatic Speech Recognition and Text-to-Speech models</li>
+                            <li>🎯 Practical skills in advanced AI techniques from feature extraction to decoding</li>
+                        </ul>
+                        
+
+                        <p>🙏 Thanks to NVIDIA for hosting the enriching #GenAIDevCon2023!</p>
+
+                        <a href="https://www.linkedin.com/posts/nasscom-ai_genaicon2023-devcon2023-genaidevcon2023-activity-7130435155223089152-pHZm?utm_source=share&utm_medium=member_desktop" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+                    </div>
+                </div><!-- end of blog wrapper -->
+
+                <!-- blog-card -->
+                <div class="blog-card">
+                    <div class="img-holder">
+                        <img src="assets/imgs/blogpandas.jpeg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                    <div class="content-holder">
+                        <h6 class="title">PandasAI: Automate Your Data Analysis with AI</h6>
+
+                        <p class="post-details">
+                            <a href="#">By: Mayur</a>
+                        </p>
+                        
+                        <p>The blog post introduces PandasAI, a Python library that integrates Generative AI capabilities with the popular data analysis tool, pandas. It provides an overview of how PandasAI can automate and enhance data analysis, including quick installation steps, usage examples, and key features such as data filtering, plotting, and shortcuts for tasks like data cleaning and feature generation. Resources for further exploration are also provided, including documentation and links to the GitHub project.</p>
+
+                        <a href="https://medium.com/@myringoleMLGOD/pandasai-automate-your-data-analysis-with-ai-ae25ea12e457" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+                    </div>
+                </div><!-- end of blog wrapper -->
+                <!-- blog-card -->
+
+            </div>
+        </div>
+
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="mb-5">Projects<span class="text-danger"></span></h2>
+            <div class="row">
+                <div class="blog-card">
+                    <div class="img-holder">
+                        <img src="assets/imgs/blogyolo.jpeg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                    <div class="content-holder">
+                        <h6 class="title">Paper Implementation YOLO from Scratch in PyTorch</h6>
+
+                        <p class="post-details">
+                            <a href="#">By: Mayur</a>
+                        </p>
+                        
+                        <p>🚀 This project implements the YOLO (You Only Look Once) object detection algorithm from scratch using PyTorch. It
+                            includes essential components such as bounding box prediction, Intersection over Union (IoU) calculation, Non-
+                            Maximum Suppression (NMS), and Mean Average Precision (mAP) evaluation. The training pipeline involves data
+                            loading, augmentation, forward pass, loss computation, and optimization. The inference pipeline processes new
+                            images for real-time object detection. This implementation aims to provide a comprehensive understanding of
+                            YOLO's architecture and functionality.</p>
+
+                            <a href="https://arxiv.org/abs/1506.02640" class="paper link">Original Paper Link > <i class="ti-world"></i></a>
+                        <a href="https://github.com/mayur-ml/YOLO-From-Scratch" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+                    </div>
+                </div><!-- end of blog wrapper -->
+
+                <!-- blog-card -->
+                <div class="blog-card">
+                    <div class="img-holder">
+                        <img src="assets/imgs/bloglandmark.jpeg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                    <div class="content-holder">
+                        <h6 class="title">Multi Landmarks Tracking with OpenCV and Mediapipe</h6>
+
+                        <p class="post-details">
+                            <a href="#">By: Mayur</a>
+                        </p>
+                        
+                        <p>This project uses Mediapipe to perform real-time multi-landmark tracking for Pose Estimation, Face Detection, and Hand Tracking. It captures webcam video, overlays detected landmarks, and displays the result. Key features include tracking human body poses, detecting faces, and tracking hand landmarks. Installation involves cloning the repository, installing dependencies, and running the script.</p>
+
+                        <a href="https://github.com/mayur-ml/Multi-Landmark-Tracking" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+                    </div>
+                </div><!-- end of blog wrapper -->
+                <!-- blog-card -->
+                <div class="blog-card">
+                    <div class="img-holder">
+                        <img src="assets/imgs/blogrenal.jpeg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                    <div class="content-holder">
+                        <h4 class="title">Risk Modelling for Renal Post Transplant Complications</h4>
+
+                        <p class="post-details">
+                            <a href="#">By: Mayur</a>
+                        </p>
+                        
+                        <p>This project uses machine learning to predict post-transplant complications in renal transplant patients, improving clinical outcomes. Utilizing Python with libraries like pandas, numpy, and scikit-survival, it evaluates models such as Random Survival Forest and Elastic Net-Based Cox. Key evaluation metrics include the Concordance index and Brier Score. Critical insights show that higher levels of platelets, hemoglobin, and white blood cell counts correlate with better graft survival. Note: Dataset and code are under NDA.</p>
+
+                        <a href="https://github.com/mayur-ml/Risk-Modelling-for-Renal-Post-Transplant-Complications" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+                    </div>
+                </div><!-- end of blog wrapper -->
+
+                <div class="blog-card">
+                    <div class="img-holder">
+                        <img src="assets/imgs/blogsolar.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                    <div class="content-holder">
+                        <h4 class="title">Solar Panel Failure Prediction</h4>
+
+                        <p class="post-details">
+                            <a href="#">By: Mayur</a>
+                        </p>
+                        
+                        <p>This project develops a machine learning model to predict solar panel failures, enhancing maintenance and reducing operational costs. Using Python 3.9.12 and libraries like pandas, numpy, and scikit-learn, the model analyzes factors such as temperature, humidity, and panel age. The dataset is sourced from a study on fault scenarios in grid-connected PV systems. The goal is to enable proactive maintenance through accurate fault prediction.</p>
+
+                        <a href="#" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+                    </div>
+
+            </div>
+        </div>
+
+
     </section>
-    <footer>
-        <p>&copy; <span id="year"></span> All rights reserved, Mayur Ingole</p>
+    <div class="section contact" id="contact">
+        <div id="map" class="map"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="contact-form-card">
+                        <h4 class="contact-title">Send a message</h4>
+                        <form action="https://formspree.io/f/mnqekrdb" method="POST">
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Name *" name="Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="email" placeholder="Email *" name="_replyto" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" placeholder="Message *" name="Message" rows="7" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info-card">
+                        <h4 class="contact-title">Get in touch</h4>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-map-alt icon-md"></i>
+                            </div>
+                            <div class="col-10">
+                                <h6 class="d-inline">Address :<br> <span class="text-muted">Bengaluru, India.</span></h6>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-envelope icon-md"></i>
+                            </div>
+                            <div class="col-10">
+                                <h6 class="d-inline">Email :<br> <span class="text-muted">myringole@gmail.com</span></h6>
+                            </div>
+                        </div>
+                        <ul class="social-icons pt-4">
+                            <li class="social-item"><a class="social-link text-dark" href="https://x.com/MAYURINGOLE16"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="https://www.linkedin.com/in/mayur-ingole-415386170"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="https://github.com/Mayur-ml"><i class="ti-github" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+    <footer class="footer py-3">
+        <div class="container">
+            <p class="small mb-0 text-light">
+                &copy; <script>document.write(new Date().getFullYear())</script> Created With <i class="ti-heart text-danger"></i> By <a href="https://www.linkedin.com/in/mayur-ingole-415386170/" target="_blank"><span class="text-danger" title="Bootstrap 4 Themes and Dashboards"> | MLGod |</span></a> 
+            </p>
+        </div>
     </footer>
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+
+	<!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Isotope  -->
+    <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
+    
+    <!-- Google mpas -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
+
+    <!-- JohnDoe js -->
+    <script src="assets/js/johndoe.js"></script>
+
 </body>
 </html>
